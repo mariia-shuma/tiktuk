@@ -1,8 +1,7 @@
 import React from "react";
 import Post from "./Post/Post";
 import { getTrendingFeed } from "../../services/ApiRequests";
-
-
+import Errormessage from "../ErrorMessage";
 
 function Feed() {
     let [posts, setPosts] = React.useState([]);
@@ -16,13 +15,10 @@ function Feed() {
         })
     }, []);
 
-
-
     let postsElements = posts.map(p => <Post post={p} key={p.id} />)
     return <div>
-        {postsElements}
+        {(error) ? <Errormessage/> : postsElements}
     </div>
-
 }
 
 export default Feed;

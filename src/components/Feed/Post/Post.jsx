@@ -25,7 +25,7 @@ function Post(props) {
             <div><CommentOutlined /> {props.post.commentCount}</div>,
             <EllipsisOutlined key="ellipsis" />
         ]}
-    >
+        >
         <NavLink to={"/userProfile/"+props.post.authorMeta.name}>
             <Meta
                 avatar={<Avatar src={props.post.authorMeta.avatar} />}
@@ -35,10 +35,7 @@ function Post(props) {
         <div>
             {postHashtags}
         </div>
-
     </Card>
-
-
 }
 
 export default Post;

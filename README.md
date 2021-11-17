@@ -1,70 +1,20 @@
-# Getting Started with Create React App
+## how to run the app
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
+In order to run the project, one should have an environmental variable REACT_APP_RAPID_API_SECRET_KEY set with RapidApi key. 
 In the project directory, you can run:
-
 ### `npm start`
+the project will automatically show a page with Trending Feed.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Application logic 
+The application does not use any state management relying instead on "page components" retrieveing data.
+(I decied not to use Redux because the App is very small)
+The app has 2 pages: `/feed` and `/userProfile/:name`. 
+The `/feed` page is represented with the component `Feed.jsx`. `Feed.jsx` is not a pure component, it has a sideeffect of calling API for the data. In order to build UI the component `Post.jsx` is used.`Post.jsx` is a pure component, it depends only on the props received from `Feed.jsx`.Basically the `/feed` page consists of list of `Post.jsx` only.
+The `/userProfile/:name` is represented with the component `UserInfo.jsx` that is not a pure component since it receives data from server. While `UserProfile.jsx` is a pure component used to show user information on the page, it depends only on the props received from `UserInfo.jsx`.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## User Feed
+Due to some API misfunctioning, one can see Trending feed instead of User feed on User Page.
 
-### `npm test`
+## UI 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Ant design library for React is used to build UI. 
